@@ -5,6 +5,7 @@ import './App.css';
 import Table from './Table'
 import Table2 from './Table2'
 import Table3 from './Table3'
+import Table4 from './Table4'
 
 // function App() {
 //   return (
@@ -28,7 +29,40 @@ import Table3 from './Table3'
 // }
 
 class App extends React.Component{
+
+  state = {
+    charactersState: [
+      {
+        name: 'Charlie',
+        job: 'Janitor',
+      },
+      {
+        name: 'Mac',
+        job: 'Bouncer',
+      },
+      {
+        name: 'Dee',
+        job: 'Aspring actress',
+      },
+      {
+        name: 'Dennis',
+        job: 'Bartender',
+      },
+    ]
+  }
+
+  removeCharacter = index => {
+    const {charactersState} = this.state
+
+    this.setState({
+      charactersState: charactersState.filter((character,i)=>{
+        return i !== index
+      })
+    })
+  }
+
   render(){
+    const {charactersState} = this.state
     const characters = [
       {
         name: 'Charlie',
@@ -54,6 +88,8 @@ class App extends React.Component{
         <Table2/>
         <hr></hr>
         <Table3 charactersData={characters} />
+        <hr></hr>
+        <Table4 charactersData={charactersState} removeCharacter={this.removeCharacter}></Table4>
       </div>
     )
   }
