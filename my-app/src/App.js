@@ -6,6 +6,8 @@ import Table from './Table'
 import Table2 from './Table2'
 import Table3 from './Table3'
 import Table4 from './Table4'
+import Table5 from './Table5'
+import Table6 from './Table6'
 
 // function App() {
 //   return (
@@ -48,10 +50,11 @@ class App extends React.Component{
         name: 'Dennis',
         job: 'Bartender',
       },
-    ]
+    ],
+    submitCharacters:[]
   }
 
-  removeCharacter = index => {
+  removeCharacter = (index) => {
     const {charactersState} = this.state
 
     this.setState({
@@ -60,9 +63,25 @@ class App extends React.Component{
       })
     })
   }
+  removesubmitCharacters = (index) => {
+    const {submitCharacters} = this.state
+
+    this.setState({
+      submitCharacters: submitCharacters.filter((character,i)=>{
+        return i !== index
+      })
+    })
+  }
+
+  handleSubmit = character => {
+    this.setState({
+      submitCharacters: [...this.state.submitCharacters, character]
+    })
+  }
 
   render(){
     const {charactersState} = this.state
+    const {submitCharacters} = this.state
     const characters = [
       {
         name: 'Charlie',
@@ -89,7 +108,11 @@ class App extends React.Component{
         <hr></hr>
         <Table3 charactersData={characters} />
         <hr></hr>
-        <Table4 charactersData={charactersState} removeCharacter={this.removeCharacter}></Table4>
+        <Table4 charactersData={charactersState} stateName="charactersState" removeCharacter={this.removeCharacter}></Table4>
+        <hr></hr>
+        <Table5 handleSubmit={this.handleSubmit} />
+        <hr></hr>
+        <Table6 charactersData={submitCharacters} stateName="submitCharacters" removeCharacter = {this.removesubmitCharacters} />
       </div>
     )
   }

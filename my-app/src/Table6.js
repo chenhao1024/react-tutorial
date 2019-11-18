@@ -15,7 +15,7 @@ const TableHeader = () => {
 
 
 const TableBody = props => {
-    const {charactersData, removeCharacter,stateName} = props
+    const {charactersData, removeCharacter, stateName} = props
     const rows = charactersData.map((row, index) => {
         return (
             <tr key={index}>
@@ -31,7 +31,7 @@ const TableBody = props => {
 }
 
 
-class Table4 extends React.Component{
+class Table6 extends React.Component{
     render(){
         const {charactersData, removeCharacter} = this.props
         return(
@@ -43,4 +43,4 @@ class Table4 extends React.Component{
     }
 }
 
-export default Table4
+export default Table6
