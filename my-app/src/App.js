@@ -9,6 +9,7 @@ import Table4 from './Table4'
 import Table5 from './Table5'
 import Table6 from './Table6'
 import App2 from './Api'
+import Demo1 from './Demo1'
 
 // function App() {
 //   return (
@@ -116,6 +117,8 @@ class App extends React.Component{
         <Table6 charactersData={submitCharacters} stateName="submitCharacters" removeCharacter = {this.removesubmitCharacters} />
         <hr></hr>
         <App2 />
+        <hr></hr>
+        <Demo1 />
       </div>
     )
   }
